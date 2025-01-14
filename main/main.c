@@ -9,6 +9,9 @@
 #include "lsm6ds3.h"
 #include "sdkconfig.h"
 
+#define MASK_2_POS(mask) __builtin_ctz(mask)
+#define MASK_2_VAL(arg, mask) ((arg&mask)>>MASK_2_POS(mask))
+
 static const char *TAG = "example";
 
 #define BLINK_GPIO CONFIG_BLINK_GPIO
